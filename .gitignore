@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# User specific configs
+config/database/test.json
