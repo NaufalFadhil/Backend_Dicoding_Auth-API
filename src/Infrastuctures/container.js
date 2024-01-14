@@ -5,7 +5,7 @@ const { createContainer } = require('instances-container');
 // External Agency
 const { nanoId } = require('nanoid');
 const bcrypt = require('bcrypt');
-const pool = require('../database/postgres/pool');
+const pool = require('./database/postgres/pool');
 
 // Service (Repository, Helper, Manager, etc)
 const UserRepositoryPostgres = require('./repository/UserRepositoryPostgres');
@@ -51,10 +51,10 @@ container.register([
 // Registering use case
 container.register([
   {
-    ket: AddUserUseCase.name,
+    key: AddUserUseCase.name,
     Class: AddUserUseCase,
     parameter: {
-      injectType: 'constructor',
+      injectType: 'destructuring',
       dependencies: [
         {
           name: 'userRepository',
