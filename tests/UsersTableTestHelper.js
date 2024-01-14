@@ -16,7 +16,7 @@ const UsersTableTestHelper = {
     await pool.query(query);
   },
 
-  async findUserById(id) {
+  async findUsersById(id) {
     const query = {
       text: 'SELECT * FROM users WHERE id = $1',
       values: [id],
@@ -25,4 +25,10 @@ const UsersTableTestHelper = {
     const result = await pool.query(query);
     return result.rows;
   },
+
+  async cleanTable() {
+    await pool.query('TRUNCATE TABLE users');
+  },
 }
+
+module.exports = UsersTableTestHelper;
